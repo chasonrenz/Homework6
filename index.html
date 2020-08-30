@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Bootstrap and CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <!-- Style.css -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Page title -->
+    <title>Weather Dashboard</title>
+</head>
+
+<body>
+    <!-- The main banner of the page, should come up transparent with this bootstrap* -->
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+        <!-- Navbar content -->
+        <span class="navbar-brand mb-0 h1 w-200 text-center">Wherever the Weather</span>
+    </nav>
+
+    <!--Create a container for the application content  -->
+    <div class="container">
+        <div class="row">
+            <!-- defines the size and background color of the search box section -->
+            <div class="col-4 bg-info">
+                <p class="search-header my-1">Search for a city</p>
+                <div class="input-group mb-3">
+                    <!-- Bootstrap input box with text placeholder - search button defined -->
+                    <input id="enter-city" type="text" class="form-control" placeholder="Which city?"
+                        aria-label="Which City?">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button" id="press-search-button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+
+
+                <!-- button group to allow user to clear history and search flights -->
+                <div class="btn-group" role="group" aria-label="Clear or Book">
+                    <button class="btn btn-primary mb-3" type="button" id="clear-history">Clear Searches</button>
+                    <a href="https://www.google.com/flights?hl=en#flt=/m/0rh6k..2020-09-14*./m/0rh6k.2020-09-18;c:USD;e:1;ls:1w;sd:0;t:h"><button class="btn btn-primary mb-3" type="button" id="book-flight">Book A Flight</button></a>
+                </div>
+                <!--displays the search history below in div section  -->
+                <form id="search-history-section"></form>
+                <!-- close out section -->
+            </div>
+
+
+            <!-- Defines new div margin right and  8 of remaining 12 to contain weather infomation -->
+            <div class="col-8 text-center">
+                <div class="row">
+                    <!-- formats border box sections -->
+                    <div class="col-12 border border-dark m-3 rounded">
+                        <div class="row">
+                            <div class="col-12">
+                                <span id="chosen-city-name" class="chosen-city-name"></span>
+                                <img id="current-weather-pic" src="placeholder" alt="">
+                            </div>
+                        </div>
+                        <!-- each row spans box and outputs each data set to be defined in JS -->
+                        <div class="row">
+                        <div class="col-12">
+                                <p id="todays-date"></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <p id="temperature-readout"></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <p id="humidity-readout"></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <p id="wind-speed-readout"></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <!-- add in the flex edit here if it needs it -->
+                                <p id="UV-index-readout"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- sets the row to span, I changed the border here for symmetry  -->
+
+                <div class="col-12 border border-dark m-3 rounded">
+                    <div class="row">
+                        <div class="col-12">
+                            <h3>Your Week at a Glance</h3>
+                        </div>
+                    </div>
+
+                    <div class="row text-center">
+                        <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
+                        <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
+                        <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
+                        <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
+                        <div class="col forecast bg-primary text-white ml-3 mb-3 rounded"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
